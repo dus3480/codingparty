@@ -1,0 +1,81 @@
+package test;
+/* package 구문을 넣으면 안됩니다 */
+import java.util.*;
+import java.io.*;
+
+/* [Notice for Java]
+ * - 기본 제공되는 뼈대 코드는 입출력의 이해를 돕기위해 제공되었습니다.
+ * - 뼈대코드의 활용은 선택사항이며 코드를 직접 작성하여도 무관합니다.
+ * 
+ * - 별도의 병렬 처리나 시스템콜, 네트워크/파일접근 등을 하지 마세요 
+ * - 입출력의 양이 많은 문제는 BufferedReader와 BufferedWriter를 사용하면 시간을 단축할 수 있습니다.
+ * - 클래스 이름은 항상 Main이어야 합니다. 주의하세요.
+ * - 모든 입력과 출력은 System.in과 System.out 스트림을 이용해야 합니다.
+ */
+class CGame{
+	int[] pl;//플레이어가 낸 숫자 저장 공간
+	int a=0,b=0,c=0;
+	public CGame(int[] pl) {
+		// TODO Auto-generated constructor stub
+		this.pl = new int[pl.length];
+		for (int i =0; i<pl.length;i++) {
+			this.pl[i] = pl[i];
+		}
+	}
+    public int Ifdraw() {
+    	if(pl.length == 5) {//초기 플레이어값이 들어왔는지 판별
+    		for(int i = 0; i<pl.length;i++) {
+    			switch(pl[i]) {
+    			case 1:
+    				a++;
+    				break;
+    			case 2:
+    				b++;
+    				break;
+    			case 3:
+    				c++;
+    				break;
+    			}
+    		}
+    		if((a>1&&b>1&&c>1)||(a==5||b==5||c==5))
+    			return 1;//비김
+    		else
+    			return 0;//승리자있음
+    	}else {
+    		return -1;//오류
+    	}
+    }
+    public int HowWin() {
+    	if(a==0) return c;
+    	else if(b==0) return a;
+    	else if(c==0) return b;
+    	else return -1;
+    }
+    public void Reset() {
+    	pl = null;
+    	int a=0,b=0,c=0;
+    }
+}
+public class Main{
+	
+
+    //표준입력을 수행할 Scanner를 선언한다 
+    public static Scanner scanner = new Scanner(System.in);
+
+
+    public static void main(String[] args)
+    {   //프로그램의 시작부 
+			int[] player = new int[5];		
+			//각 플레이어의 선택 정보를 저장한다 
+			for(int i = 0 ; i< 5; i++){
+				player[i] = scanner.nextInt();
+			}
+			CGame pl = new CGame(player);//게임셋
+			
+			if(pl.Ifdraw()==0) {//비긴게임이 아니라면
+				System.out.println(pl.HowWin()); //이긴사람수 출력
+			}else {
+				System.out.println(0);
+			}
+    }
+}

@@ -1,0 +1,84 @@
+package test;
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		String temp;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int count = 0;
+		while((temp = br.readLine())!= null && count <9) {
+			count ++;
+			String[] str = temp.split(" ");
+			switch(str[0]) {
+			case "Canvas":
+				if(str.length<5) {
+					System.out.println("parsing error");
+				}else {
+					System.out.println(str[2]);
+					System.out.println(str[4]);
+				}
+				break;
+			case "Background":
+				if(str.length<3) {
+					System.out.println("parsing error");
+				}else {
+					String[] t = str[2].split("x");
+					if(t.length<2) System.out.println("parsing error2");
+					else{
+						char[] ar = t[1].toCharArray();
+						int i =0,a = 0;
+						for (int j = 0; j<ar.length;j++) {
+							char c = ar[j];
+							switch(c) {
+							case 'a':
+								i = 10;
+								break;
+							case 'b':
+								i = 11;
+								break;
+							case 'c':
+								i = 12;
+								break;
+							case 'd':
+								i = 13;
+								break;
+							case 'e':
+								i = 14;
+								break;
+							case 'f':
+								i = 15;
+								break;
+							default:
+								i = Character.getNumericValue(c);
+							}
+							//a += i*16^(ar.length-1-j);
+							a+= i*Math.pow(16, ar.length-1-j);
+						}
+						System.out.println(a);
+					}
+				}
+				break;
+			case "Number":
+				if(str.length<4) {
+					System.out.println("parsing error");
+				}else {
+					System.out.println(str[3]);
+				}
+				break;
+			case "No.:":
+				break;
+			case "1:": case "2:": case "3:": case "4:": case "5:":
+				if(str.length<5) {
+					System.out.println("parsing error");
+				}else {
+					int alpha = 0;
+					if(str[3].equals("yes")) alpha = 1;
+					System.out.println(str[1]+"x"+str[2]+", "+str[4]+", "+ alpha);
+				}
+				break;
+			default:
+				System.out.println("parsing error");
+			}
+		}
+	}
+}

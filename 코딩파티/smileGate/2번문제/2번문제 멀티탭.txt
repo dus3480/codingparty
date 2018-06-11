@@ -1,0 +1,19 @@
+package test;
+import java.util.Scanner;
+
+//Please don't change class name 'Main'
+
+class Main {
+	public static Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) {
+		int n = Integer.parseInt(scanner.nextLine());//멀티탭 개수 1~10
+		int[] k = new int[n];
+		int total =0;
+		for (int i=0; i<n;i++) {
+			k[i] = scanner.nextInt();//멀티탭의 구 수
+			total += k[i];
+		}
+		
+		System.out.println(total - (n-1));
+  }
+}
