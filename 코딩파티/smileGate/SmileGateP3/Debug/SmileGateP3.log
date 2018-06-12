@@ -1,3 +1,5 @@
 ﻿  Main.cpp
-  SmileGateP3.vcxproj -> D:\CppPractice\SmileGateP3\Debug\SmileGateP3.exe
-  SmileGateP3.vcxproj -> D:\CppPractice\SmileGateP3\Debug\SmileGateP3.pdb (Full PDB)
+d:\codingparty\코딩파티\smilegate\smilegatep3\main.cpp(7): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\codingparty\코딩파티\smilegate\smilegatep3\main.cpp(8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  SmileGateP3.vcxproj -> D:\codingparty\코딩파티\smileGate\SmileGateP3\Debug\SmileGateP3.exe
+  SmileGateP3.vcxproj -> D:\codingparty\코딩파티\smileGate\SmileGateP3\Debug\SmileGateP3.pdb (Full PDB)
